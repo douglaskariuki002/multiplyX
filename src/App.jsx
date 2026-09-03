@@ -3,19 +3,34 @@ import './App.css';
 import * as d3 from 'd3';
 
 function App() {
-  const [data, setData] = useState({
-    rows: [],
-    cols: []
-  });
+  const INITIAL_ROWS = 5
+  const INITIAL_COLS = 6
+
+  const [rowsCount, setRowsCount] = useState(INITIAL_ROWS)
+  const [colsCount, setColsCount] = useState(INITIAL_COLS)
+
+  const [data, setData] = useState({ rows: [], cols: [] });
   const [matrix, setMatrix] = useState([]);
 
   const {rows, cols} = data;
 
   useEffect(() => {
-    const dataGrid = getData(5, 6)
+    const dataGrid = getData(rowsCount, colsCount)
     setData(dataGrid)
-    setMatrix(createMatrix(rows, cols))
-  }, [data])
+    setMatrix(createMatrix(dataGrid.rows, dataGrid.cols))
+  }, [rowsCount, colsCount])
+
+  function handleRandomize() {
+    const randRows = Math.floor(Math.random() * 10) + 3 // 3..12
+    const randCols = Math.floor(Math.random() * 10) + 3 // 3..12
+    setRowsCount(randRows)
+    setColsCount(randCols)
+  }
+
+  function handleReset() {
+    setRowsCount(INITIAL_ROWS)
+    setColsCount(INITIAL_COLS)
+  }
 
   function createMatrix(rows, cols) {
     let arr = [];
@@ -36,22 +51,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        The Multiplication Grid
-      </h1>
+      <div className="App-header container card">
+        <h1 className="App-title">The Multiplication Grid</h1>
+        <p className="App-subtitle">An interactive multiplication visualization</p>
+        <div className="App-actions">
+          <button onClick={handleRandomize}>Randomize</button>
+          <button className="secondary" onClick={handleReset}>Reset</button>
+        </div>
+      </div>
 
-      <div className='grid'>
-        <Grid>
-          <TopRow 
-            data={rows}
-          />
-          <LeftCol 
-            data={cols}
-          />
-          <Multiples 
-            data={matrix}
-          />
-        </Grid>
+      <div className="app-grid container">
+        <div className="panel card">
+          <div className="grid">
+            <Grid>
+              <TopRow data={rows} />
+              <LeftCol data={cols} />
+              <Multiples data={matrix} />
+            </Grid>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -107,6 +125,7 @@ function Numbers({data, orient}) {
     return (
       data.map((d, i) => (
         <text 
+          key={`y-${i}`}
           transform='translate(-60, 60)'
           y={i * 60}
         >{d}</text>
@@ -118,6 +137,7 @@ function Numbers({data, orient}) {
     return (
       data.map((d, i) => (
         <text 
+          key={`x-${i}`}
           transform='translate(0, 0)'
           x={i * 60}
         >{d}</text>
@@ -128,6 +148,7 @@ function Numbers({data, orient}) {
   return (
     data.map((d) => (
       <text
+        key={`${d.x}-${d.y}`}
         transform='translate(-60)'
         x={d.x * 60}
         y={d.y * 60}
