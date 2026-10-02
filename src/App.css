@@ -1,0 +1,62 @@
+.App {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+/* ensure root can fill viewport height when needed */
+html, body, #root {
+	height: 100%;
+}
+
+.card {
+	background: var(--card);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	padding: 20px;
+	display: inline-block;
+}
+
+.App-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.App-title {
+	margin: 0;
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: var(--text);
+}
+
+.App-subtitle {
+	margin: 0;
+	color: var(--muted);
+	font-weight: 400;
+}
+
+.app-grid { display: flex; justify-content: center; }
+
+/* make panels shrink-wrap to the content */
+.panel { padding: 16px; width: auto; display: inline-block; }
+
+.grid { display: flex; justify-content: center; align-items: center; overflow: auto; padding: 8px; }
+
+.Chart { max-width: 100%; height: auto; display: block; }
+
+.Chart text { font-size: 14px; fill: var(--text); text-anchor: middle; dominant-baseline: middle; }
+.Top-row text, .Left-col text { font-weight: 600; fill: var(--muted); }
+.Multiples text { font-weight: 500; fill: var(--text); }
+
+@media (max-width: 600px) {
+	.App-title { font-size: 1.3rem; }
+	.container { padding: 16px; }
+	.Chart text { font-size: 12px; }
+}
+
