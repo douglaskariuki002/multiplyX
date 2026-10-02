@@ -10,8 +10,8 @@ function App() {
   useEffect(() => {
     const dataGrid = getData(5, 6)
     setData(dataGrid)
-    setMatrix(createMatrix(5, 6))
-  }, [])
+    setMatrix(createMatrix(rows, cols))
+  }, [data])
 
   function createMatrix(rows, cols) {
     let arr = [];
