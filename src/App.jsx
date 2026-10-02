@@ -10,7 +10,25 @@ function App() {
   useEffect(() => {
     const dataGrid = getData(5, 6)
     setData(dataGrid)
-  }, [])
+    setMatrix(createMatrix(rows, cols))
+  }, [data])
+
+  function createMatrix(rows, cols) {
+    let arr = [];
+
+    rows.map((d) => {
+      cols.map((v) => {
+        var grid = {
+          x: d, 
+          y: v,
+          product: d * v
+        }
+        arr.push(grid)
+      })
+    })
+
+    return arr
+  }
 
   return (
     <>
