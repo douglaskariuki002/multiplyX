@@ -41,6 +41,32 @@ html, body, #root {
 	font-weight: 400;
 }
 
+.App-actions {
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+	align-items: center;
+}
+
+.App-actions button {
+	background: var(--accent);
+	color: white;
+	border: 0;
+	padding: 10px 14px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: background .15s ease, transform .08s ease;
+}
+
+.App-actions button:hover { background: var(--accent-600); transform: translateY(-1px); }
+
+.App-actions button.secondary {
+	background: transparent;
+	color: var(--accent);
+	border: 1px solid rgba(37,99,235,0.12);
+}
+
 .app-grid { display: flex; justify-content: center; }
 
 /* make panels shrink-wrap to the content */
