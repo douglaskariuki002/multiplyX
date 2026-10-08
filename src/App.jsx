@@ -42,6 +42,10 @@ function App() {
         <div className="App-header container card">
           <h1 className="App-title">The Multiplication Grid</h1>
           <p className="App-subtitle">An interactive multiplication visualization</p>
+          <div className="App-actions">
+            <button>Randomize</button>
+            <button className="secondary">Reset</button>
+          </div>
         </div>
 
         <div className="app-grid container">
