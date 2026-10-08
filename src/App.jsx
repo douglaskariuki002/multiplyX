@@ -2,13 +2,19 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
+  const INITIAL_ROWS = 5
+  const INITIAL_COLS = 6
+
+  const [rowsCount, setRowsCount] = useState(INITIAL_ROWS)
+  const [colsCount, setColsCount] = useState(INITIAL_COLS)
+
   const [data, setData] = useState({ rows: [], cols: [] });
   const [matrix, setMatrix] = useState([]);
 
   const {rows, cols} = data;
 
   useEffect(() => {
-    const dataGrid = getData(5, 6)
+    const dataGrid = getData(rowsCount, colsCount)
     setData(dataGrid)
     setMatrix(createMatrix(rows, cols))
   }, [data])
