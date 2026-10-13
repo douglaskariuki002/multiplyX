@@ -27,7 +27,8 @@ function App() {
   }
 
   function handleReset() {
-
+    setRowsCount(INITIAL_ROWS)
+    setColsCount(INITIAL_COLS)
   }
 
   function createMatrix(rows, cols) {
