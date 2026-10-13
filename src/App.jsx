@@ -19,6 +19,14 @@ function App() {
     setMatrix(createMatrix(rows, cols))
   }, [data])
 
+  function handleRandomize() {
+
+  }
+
+  function handleReset() {
+    
+  }
+
   function createMatrix(rows, cols) {
     let arr = [];
 
@@ -43,8 +51,8 @@ function App() {
           <h1 className="App-title">The Multiplication Grid</h1>
           <p className="App-subtitle">An interactive multiplication visualization</p>
           <div className="App-actions">
-            <button>Randomize</button>
-            <button className="secondary">Reset</button>
+            <button onClick={handleRandomize}>Randomize</button>
+            <button className="secondary" onClick={handleReset}>Reset</button>
           </div>
         </div>
 
