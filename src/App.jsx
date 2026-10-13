@@ -20,11 +20,14 @@ function App() {
   }, [data])
 
   function handleRandomize() {
-
+    const randRows = Math.floor(Math.random() * 10) + 3 // 3..12
+    const randCols = Math.floor(Math.random() * 10) + 3 // 3..12
+    setRowsCount(randRows)
+    setColsCount(randCols)
   }
 
   function handleReset() {
-    
+
   }
 
   function createMatrix(rows, cols) {
