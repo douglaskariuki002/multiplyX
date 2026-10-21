@@ -31,7 +31,7 @@ function App() {
 
   function handleRandomize() {
     const randRows = makeRandomRows()
-    const randCols = 
+    const randCols = makeRandomCols()
     setRowsCount(randRows)
     setColsCount(randCols)
   }
