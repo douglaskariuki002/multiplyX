@@ -19,8 +19,13 @@ function App() {
     setMatrix(createMatrix(rows, cols))
   }, [data])
 
-  function handleRandomize() {
+  const makeRandomRows = () => {
     const randRows = Math.floor(Math.random() * 10) + 3 // 3..12
+    return randRows
+  }
+
+  function handleRandomize() {
+    const randRows = makeRandomRows()
     const randCols = Math.floor(Math.random() * 10) + 3 // 3..12
     setRowsCount(randRows)
     setColsCount(randCols)
