@@ -24,9 +24,14 @@ function App() {
     return randRows
   }
 
+  const makeRandomCols = () => {
+    const randCols = Math.floor(Math.random() * 10) + 3 // 3..12
+    return randCols
+  }
+
   function handleRandomize() {
     const randRows = makeRandomRows()
-    const randCols = Math.floor(Math.random() * 10) + 3 // 3..12
+    const randCols = 
     setRowsCount(randRows)
     setColsCount(randCols)
   }
