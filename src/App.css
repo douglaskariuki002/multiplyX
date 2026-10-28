@@ -1,9 +1,10 @@
 .App {
 	min-height: 100vh;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 0;
+	padding: 24px 16px;
 }
 
 /* ensure root can fill viewport height when needed */
@@ -39,6 +40,33 @@ html, body, #root {
 	margin: 0;
 	color: var(--muted);
 	font-weight: 400;
+}
+
+.App-controls {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 12px;
+}
+
+.control-field {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	color: var(--muted);
+	font-weight: 600;
+}
+
+.control-field input {
+	width: 92px;
+	border: 1px solid rgba(148, 163, 184, 0.35);
+	border-radius: 8px;
+	padding: 8px 10px;
+	font-size: 1rem;
+	color: var(--text);
+	background: rgba(255, 255, 255, 0.05);
 }
 
 .App-actions {
